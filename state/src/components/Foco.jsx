@@ -1,32 +1,26 @@
-import React, { Component } from 'react';
-                
-                
-class LightSwitch extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            position: "On"
-        };
-    }
-
-    changeSwitch = () =>{
-      if(this.state.position === "On"){
-        this.setState({position:"Off"});
+import React, { useState } from 'react';
+                       
+const LightSwitch = (props) => {
+    
+    const [state,setState] = useState({position:"On"}); 
+       
+    const changeSwitch = () =>{
+      if(state.position === "On"){
+        setState({position:"Off"});
       }
       else{
-        this.setState({position:"On"});
+        setState({position:"On"});
       }
     }
     
-    render() {
-        return (
-            <fieldset>
-                <p>The light is currently { this.state.position }</p>
-                <button onClick = {this.changeSwitch}>Flip Switch</button>
-            </fieldset>
-        );
-    }
+    return (
+        <fieldset>
+            <p>The light is currently { state.position }</p>
+            <button onClick = {changeSwitch}>Flip Switch</button>
+        </fieldset>
+    );
+    
 }
-                
+
 export default LightSwitch;
 
