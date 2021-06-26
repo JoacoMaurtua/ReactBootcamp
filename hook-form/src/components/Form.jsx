@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyleDiv = styled.div`
-  border: 1px solid red;
   width: 50%;
   display: inline-block;
   padding: 0 auto;
@@ -59,17 +58,22 @@ const DataDiv = styled.div`
   h2{
     color: white;
     margin-top: 10px;
-    margin-bottom: -8px;
+    margin-bottom: 10px;
     font-size: 18px;
   }
   p{
-    color: white;
+    color: #eeeeee;
     float: left;
     margin-right: 150px;
-    margin-left: 80px;
+    margin-left: 50px;
     margin-bottom: 5px;
     font-size: 15px;
     font-weight: bold;
+  }
+  span{
+    margin-left: 30px;
+    color: white;
+    font-size: 15px;
   }
 
 `
@@ -159,10 +163,10 @@ export default function UseForm(props) {
   <DataDiv className="Data">
         <h2>YOUR FORM DATA</h2>
         <p>First Name:<span>{firstName}</span> </p> 
-        <p>Last Name: {lastName}</p>   
-        <p>Email: {email}</p>   
-        <p>Password: {password}</p>   
-        <p>Confirm password: {newPassword}</p>   
+        <p>Last Name: <span>{lastName}</span></p>   
+        <p>Email: <span>{email}</span></p>   
+        <p>Password: <span>{password}</span></p>   
+        <p>Confirm password: <span>{newPassword}</span></p>   
   </DataDiv>
     
   </StyleDiv>
