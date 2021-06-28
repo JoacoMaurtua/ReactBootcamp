@@ -10,70 +10,70 @@ const StyleDiv = styled.div`
 `
 
 const Title = styled.h2`
-  margin-top:2px;
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-top:0.125rem;
+  margin-bottom: 0.625rem;
+  font-size: 1.125rem;
 `
 
 const BigForm = styled.form`
   background-color: #ddd8d8;
   overflow: hidden;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 0.625rem;
+  padding-bottom: 1.25rem;
 `
 
 const InputDiv = styled.div`
   background-color: #c9c9c9;
-  width: 280px;
-  margin-bottom: 12px;
+  width: 17.5rem;
+  margin-bottom: 0.75rem;
   display: inline-block;
-  padding: 10px 60px;
-  border-radius: 10px;
-  font-size: 12px;
+  padding: 0.625rem 3.75rem;
+  border-radius: 0.625rem;
+  font-size: 0.75rem;
   overflow: hidden;
 `
 
 const StyleLabel = styled.label`
   font-weight: bold;
-  margin-left: -60px;
+  margin-left: -3.75rem;
 `
 
 const StyleInput = styled.input`
   background-color: #faf8f8;
-  width: 180px;
+  width: 11.25rem;
   border: 2px solid #e6e3e3;
   outline: none;
   float: right;
-  margin-left: -25px;
-  border-radius: 5px;  
+  margin-left: -1.563rem;
+  border-radius: 0.313rem;  
 `
 
 /* BEGIN THE DATA ZONE*/
 
 const DataDiv = styled.div`
   background-color: #4F7B3E;
-  margin-top: -20px;
+  margin-top: -1.25rem;
   overflow: hidden;
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
   h2{
     color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+    font-size: 1.125rem;
   }
   p{
     color: #eeeeee;
     float: left;
-    margin-right: 150px;
-    margin-left: 50px;
-    margin-bottom: 5px;
-    font-size: 15px;
+    margin-right: 9.375rem;
+    margin-left: 3.125rem;
+    margin-bottom: 0.313rem;
+    font-size: 0.938rem;
     font-weight: bold;
   }
   span{
-    margin-left: 30px;
-    color: white;
-    font-size: 15px;
+    margin-left: 1.875rem;
+    color: #faea06;
+    font-size: 0.938rem;
   }
 
 `
