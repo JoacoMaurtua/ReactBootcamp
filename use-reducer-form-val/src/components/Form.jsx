@@ -28,57 +28,62 @@ export default function Form() {
     })
   }
 
-  const validation = (e) =>{
 
-      const email = e.target.value;
+  const validation = () =>{
 
-      if(state.firstName.length>0 && state.firstName.lenght<2){
+      if(state.firstName.length>0 && state.firstName.length<=2){
           state.error.firstName = "El nombre deber tener por lo menos dos caracteres"
       }
 
-      else if(state.firstName.length>0 && state.firstName.lenght<2){
-        state.error.firstName = "El nombre deber tener por lo menos dos caracteres"
+      else if(state.lastName.length>0 && state.lastName.length<=2){
+        state.error.lastName = "El nombre deber tener por lo menos dos caracteres"
       }
 
-      else if(!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-] + @ [a-zA-Z0 -9 -] + (?: \. [A-zA-Z0-9 -] +) * $ /.test(email))){
+      else if(state.email.length>0 && state.email.length< 5){
         state.error.email = "El correo ingresado no es valido"
       }
 
-     /*  else{return ""} */
+     else{
+      state.error.firstName = ""
+      state.error.lastName = ""
+      state.error.email = ""
+     }
   }
 
   validation();
   
 
   return (
-    <form onSubmit = {(event)=>event.preventDefault()}>
+    <form onSubmit = {(event)=>{event.preventDefault();console.log(state);
+      console.log(state.firstName);}}>
 
-      <div>
-        <label htmlFor="firstName">First Name: </label>
+      <div className="group">
+        <label htmlFor="firstName">First Name </label>
         <input type="text" name="firstName" value={state.firstName} onChange={onChange} />
         {
           (state.error.firstName !== null)?<p>{state.error.firstName}</p>:""
         }
       </div>
 
-      <div>
-        <label htmlFor="lastName">Last Name: </label>
+      <div className="group">
+        <label htmlFor="lastName">Last Name </label>
         <input type="text" name="lastName" value={state.lastName} onChange={onChange}/>
         {
-          //error
+          (state.error.lastName !== null)?<p>{state.error.lastName}</p>:""
         }
       </div>
 
-      <div>
-        <label htmlFor="email">Email: </label>
-        <input type="text" name="firstName" value={state.email} onChange={onChange}/>
+      <div className="group">
+        <label htmlFor="email">Email </label>
+        <input type="text" name="email" value={state.email} onChange={onChange}/>
         {
-          //error
+          (state.error.email !== null)?<p>{state.error.email}</p>:""
         }
       </div>
 
-      <input type="submit"/>
+      <input className="boton" type="submit"/>
       
     </form>
   )
 }
+
