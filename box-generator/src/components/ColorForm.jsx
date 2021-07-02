@@ -63,23 +63,24 @@ export default function ColorForm() {
 
   return (
     <div>
+      <h3>BOX GENERATOR WHITH REACT</h3>
       <StyleForm onSubmit={onSubmit}>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="color">Color </label>
           <input type="text" ref={inputColor} name="color" onChange = {onChange} />
         </div>
 
-        <div>
+        <div className="inputContainer">
           <label htmlFor="width">Width </label>
           <input type="text" ref={inputWidth} name="width" onChange = {onChange} />
         </div>
 
-        <div>
+        <div className="inputContainer">
           <label htmlFor="height">Height </label>
           <input type="text" ref={inputHeight} name="height" onChange = {onChange} />
         </div>
 
-        <input type="submit" value="Add" />
+        <input className="boton" type="submit" value="Add" />
     
     
       </StyleForm>
