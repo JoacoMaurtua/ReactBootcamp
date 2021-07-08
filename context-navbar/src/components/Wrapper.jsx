@@ -1,10 +1,14 @@
 import React, {useState, createContext} from 'react';
 
+export const MasterChief = createContext();
 
 export default function Wrapper(props) {
+
+  const [state,setState] = useState("");
+
   return (
-    <div>
+    <MasterChief.Provider value = {{state,setState}}>
        {props.children}
-    </div>
+    </MasterChief.Provider>
   )
 }
