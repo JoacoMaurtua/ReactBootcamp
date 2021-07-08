@@ -1,4 +1,5 @@
 import React, {useState, createContext} from 'react';
+import styled from 'styled-components';
 
 export const MasterChief = createContext();
 
