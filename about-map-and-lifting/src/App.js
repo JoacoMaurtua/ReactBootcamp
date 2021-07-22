@@ -14,6 +14,7 @@ const Container = styled.div`
   display: inline-block;
   background-color: #2b2a2a;
   color: white;
+  text-align: center;
 `
 
 

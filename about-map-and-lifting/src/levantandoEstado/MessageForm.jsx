@@ -2,9 +2,31 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyleArea = styled.textarea`
-  
+  border-radius: 20px;
+  padding: 20px;
+  border: 0;
+  outline: none;
+  font-size: 15px;
 
 ` 
+
+const Button = styled.button`
+  background:rgb(4, 174, 204);
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: none;
+
+  :hover{
+    background-color: rgb(4, 120, 141);
+  }
+
+`
 
 export default function MessageForm({updateState}) {
 
@@ -31,7 +53,7 @@ export default function MessageForm({updateState}) {
           value={ mensaje }
       ></StyleArea>
       
-      <input type="submit" value="Send Message" />
+      <Button type="submit">Send</Button>
     </form>
   )
 }
