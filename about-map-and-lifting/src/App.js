@@ -1,8 +1,20 @@
 import './App.css';
 import React, { useState } from 'react';
-/* import Grosery from './components/Grosery'; */
 import MessageForm from './levantandoEstado/MessageForm';
 import MessageDisplay from './levantandoEstado/MessageDisplay';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 100px 500px;
+  width: 500px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  height: 500px;
+  display: inline-block;
+  background-color: #2b2a2a;
+  color: white;
+`
 
 
 function App() {
@@ -16,12 +28,15 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {/* <Grosery groseryList = {["pearl onions", "thyme", "cremini mushrooms", "butter"]}/> */}
+    <Container>
+      
       <MessageForm updateState = {actualizarEstado}/>
       <MessageDisplay displayMessage = {message}/>
-    </div>
+
+    </Container>
   );
 }
 
 export default App;
+
+

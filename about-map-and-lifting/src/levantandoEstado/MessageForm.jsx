@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const StyleArea = styled.textarea`
+  
+
+` 
 
 export default function MessageForm({updateState}) {
 
@@ -17,14 +23,17 @@ export default function MessageForm({updateState}) {
       }}>
 
       <h1>Set Message</h1>
-      <textarea 
+      <StyleArea 
           rows="4"
           cols="50"
           placeholder="Enter your message here"
           onChange={ (e) => setMensaje(e.target.value)}
           value={ mensaje }
-      ></textarea>
+      ></StyleArea>
+      
       <input type="submit" value="Send Message" />
     </form>
   )
 }
+
+
