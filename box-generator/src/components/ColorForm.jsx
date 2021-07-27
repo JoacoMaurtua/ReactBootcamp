@@ -51,7 +51,7 @@ export default function ColorForm() {
   const onSubmit = (e) =>{
     e.preventDefault();
     setState({
-        boxex:[...state.boxes,
+        boxes:[...state.boxes,
                 {color:state.color,
                 width:state.width,
                 height:state.height,
@@ -71,22 +71,22 @@ export default function ColorForm() {
       <StyleForm onSubmit={onSubmit}>
         <div className="inputContainer">
           <label htmlFor="color">Color: </label>
-          <input type="text" name="color" value={state.color} onChange={onChange}/>
+          <input type="text" ref={inputColor} name="color" value={state.color} onChange={onChange}/>
         </div>
 
         <div className="inputContainer">
           <label htmlFor="width">Width: </label>
-          <input type="text" name="width" value={state.width} onChange={onChange}/>
+          <input type="text" ref={inputWidth} name="width" value={state.width} onChange={onChange}/>
         </div>
 
         <div className="inputContainer">
           <label htmlFor="height">Height: </label>
-          <input type="text" name="height" value={state.height} onChange={onChange} />
+          <input type="text" ref={inputHeight} name="height" value={state.height} onChange={onChange} />
         </div>
 
         <div className="inputContainer">
           <label htmlFor="radius">Radius: </label>
-          <input type="text" name="bordeRadius" value={state.bordeRadius} onChange={onChange}  />
+          <input type="text" ref={inputRadius} name="bordeRadius" value={state.bordeRadius} onChange={onChange}  />
         </div>
 
         <input className="boton" type="submit" value="Add" />
@@ -95,7 +95,15 @@ export default function ColorForm() {
       </StyleForm>
 
       <div>
-        {/*  */}
+        {state.boxes.map((figure,index)=> 
+                    (<Box key={index} 
+                         color={figure.color}
+                         width={figure.width}
+                         height={figure.height}
+                         bordeRadius={figure.bordeRadius}
+                    />)
+                  )
+        }
       </div>
 
       {/* background-color: estas recibiendo un props llamado color    color={ }
