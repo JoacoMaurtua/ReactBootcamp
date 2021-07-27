@@ -15,24 +15,28 @@ const Button = styled.button`
   }
 `
 const DivStyle = styled.div`
-  width: 465px;
+  width: 610px;
   height: 180px;
   border: 2px solid #e9e9e9;
-  margin-top: 20px;
-  margin-left: 273px;
   font-size: 20px;
   font-weight: bold;
   padding-top: 50px;
+  margin: 0 auto;
+  margin-top: 50px;
 `
 
-export default function Tabs() {
+export default function Tabs(props) {
 
-  const tabs = [1,2,3];
+  const tabs = [1,2,3,4];
 
   const [state,setState] = useState({initialTab:1});
 
   const changeValues = (event,value) =>{
     setState({initialTab:value});
+  }
+
+  const onAlert = (event,value) => {
+    alert(`You click the tab number ${value}`);
   }
 
   const buttonList = tabs.map((item,index) => {return(<Button key={index} onClick={(event) => changeValues(event,item)}>Tab {item}</Button>)});
@@ -42,18 +46,19 @@ export default function Tabs() {
   return (
     <div className="Container">
         <div className="buttons">
-          {/* <button>Tab {item}</button>
-          <button>Tab {item}</button>
-          <button>Tab {item}</button> */}
+          
           {buttonList}
 
         </div>
+
         <DivStyle>
-          Tab {initialTab} content here!
+          <h3 onClick={e => onAlert()}>This is the tab {initialTab}</h3>
         </DivStyle>
     </div>
   )
 }
+
+
 
 
 
