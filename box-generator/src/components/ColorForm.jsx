@@ -16,11 +16,11 @@ const Box = styled.div`
   background-color: ${props => props.color};  //$ llaves es para escribir js dentro de css
   width: ${props=>props.width};
   height: ${props=>props.height};
+  border-radius: ${props=>props.bordeRadius};
   display: inline-block;
   margin-top: 50px;
   margin-right: 25px;
 `
-
 
 
 export default function ColorForm() {
@@ -47,11 +47,28 @@ export default function ColorForm() {
         [name]:value
       });
   };
+
+  const onSubmit = (e) =>{
+    e.preventDefault();
+    setState({
+        boxex:[...state.boxes,
+                {color:state.color,
+                width:state.width,
+                height:state.height,
+                bordeRadius: state.bordeRadius}
+              ]
+    });
+
+    inputColor.current.value = '';
+    inputWidth.current.value = '';
+    inputHeight.current.value = '';
+    inputRadius.current.value = '';
+  }
   
   return (
     <div>
       <h3>BOX GENERATOR WHITH REACT</h3>
-      <StyleForm onSubmit={e => e.preventDefault()}>
+      <StyleForm onSubmit={onSubmit}>
         <div className="inputContainer">
           <label htmlFor="color">Color: </label>
           <input type="text" name="color" value={state.color} onChange={onChange}/>
@@ -69,7 +86,7 @@ export default function ColorForm() {
 
         <div className="inputContainer">
           <label htmlFor="radius">Radius: </label>
-          <input type="text" name="borderRadius" value={state.bordeRadius} onChange={onChange} />
+          <input type="text" name="bordeRadius" value={state.bordeRadius} onChange={onChange}  />
         </div>
 
         <input className="boton" type="submit" value="Add" />
