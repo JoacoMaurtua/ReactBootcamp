@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React, {useState,useRef} from 'react';
 import styled from 'styled-components';
 
@@ -21,63 +22,54 @@ const Box = styled.div`
 `
 
 
+
 export default function ColorForm() {
+
+  //useRef se usa para eliminar la info de las input una vez se haya hecho submit
 
   const inputColor = useRef(null);
   const inputWidth = useRef(null);
   const inputHeight = useRef(null);
+  const inputRadius = useRef(null);
 
   const [state,setState] = useState({
-    color:"",
-    width:0,
-    height:0,
-    boxes:[]
-  });
+    width: 0,
+    height: 0,
+    color: "",
+    bordeRadius: 0,
+    boxes: []
+  })
 
-  const onChange = (event) =>{
-    const {name,value} = event.target;
-    setState({
-      ...state,
-      [name]:value
-    })
-  }
-
-  const onSubmit = (event) =>{
-    event.preventDefault();
-    const {color,width,height} = state
-    setState({
-      color:"",
-      width:0,
-      height:0,
-      boxes:[...state.boxes,{Color:color,
-                            Width:width,
-                            Height:height
-            }] //traer las cajitas anteriores y la actual
-    })
-    inputColor.current.value = "";
-    inputWidth.current.value = "";
-    inputHeight.current.value = "";
-  }
-
+  const onChange = (e) =>{
+      const {name,value} = e.target;
+      setState({
+        ...state,
+        [name]:value
+      });
+  };
   
-
   return (
     <div>
       <h3>BOX GENERATOR WHITH REACT</h3>
-      <StyleForm onSubmit={onSubmit}>
+      <StyleForm onSubmit={e => e.preventDefault()}>
         <div className="inputContainer">
-          <label htmlFor="color">Color </label>
-          <input type="text" ref={inputColor} name="color" onChange = {onChange} />
+          <label htmlFor="color">Color: </label>
+          <input type="text" name="color" value={state.color} onChange={onChange}/>
         </div>
 
         <div className="inputContainer">
-          <label htmlFor="width">Width </label>
-          <input type="text" ref={inputWidth} name="width" onChange = {onChange} />
+          <label htmlFor="width">Width: </label>
+          <input type="text" name="width" value={state.width} onChange={onChange}/>
         </div>
 
         <div className="inputContainer">
-          <label htmlFor="height">Height </label>
-          <input type="text" ref={inputHeight} name="height" onChange = {onChange} />
+          <label htmlFor="height">Height: </label>
+          <input type="text" name="height" value={state.height} onChange={onChange} />
+        </div>
+
+        <div className="inputContainer">
+          <label htmlFor="radius">Radius: </label>
+          <input type="text" name="borderRadius" value={state.bordeRadius} onChange={onChange} />
         </div>
 
         <input className="boton" type="submit" value="Add" />
@@ -86,7 +78,7 @@ export default function ColorForm() {
       </StyleForm>
 
       <div>
-        {state.boxes.map((item,index)=>( <Box key={index} color={item.Color} width={item.Width} height={item.Height}/>))} 
+        {/*  */}
       </div>
 
       {/* background-color: estas recibiendo un props llamado color    color={ }
