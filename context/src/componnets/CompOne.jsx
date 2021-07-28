@@ -1,18 +1,21 @@
 import React, { useContext } from 'react';
 import { MyComponent } from '../App';
 
-export default function NavBar() {
+export default function CompOne() {
 
-  //const newValue = useContext(MyComponent);
+ 
   const {state,setState} = useContext(MyComponent);
 
   //newValue.setState(3);
-  setState(3);
+
+  const onClick = (e) =>{
+    setState(state+1);
+  }
   
   return (
     <div>
       <h1>CONTEXT RESULT</h1>
-      <p>{state}</p>
+      <button onClick={onClick}>{state}</button>
     </div>
   )
 }
