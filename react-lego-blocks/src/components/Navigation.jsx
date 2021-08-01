@@ -3,18 +3,20 @@ import styled from 'styled-components';
 
 const StyleDiv = styled.div`
   display: inline-block;
-  background-color: #6fa8dc;
+  background-color: ${props=>props.color || "#6fa8dc"};
   height: 21.875rem;
   width: 12.5rem;
   border: 2px solid black;
   vertical-align: top;
 
-  /* @media only screen and(min-width:) */
+  @media (max-width:480px){
+    display: none;
+  }
 `
 
-export default function Navigation() {
+export default function Navigation(props) {
   return (
-    <StyleDiv>
+    <StyleDiv color = {""}>
     
     </StyleDiv>
 

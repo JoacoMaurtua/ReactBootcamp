@@ -10,3 +10,6 @@ export default function Input(props) {
   );
 }
 
+/* La funcion del metodo onChange es apuntar al nuevo valor ingresado en un input */
+
+//AQUI SE USARA EL ONCHANGE para cambiar la entrada del valor

@@ -15,7 +15,7 @@ export default function UseForm(props) {
     console.log(data);
     setUserName("");
     setEmail("");
-    setPassword("");
+    setPassword(""); 
   }
 
   
@@ -43,3 +43,5 @@ export default function UseForm(props) {
     </form>
   )
 }
+
+

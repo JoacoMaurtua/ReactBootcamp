@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumir APIs</title>
+</head>
+<body>
+
+  <!-- VERSION USANDO PROMESAS SIMPLES -->
+  <script>
+    fetch("https://pokeapi.co/api/v2/pokemon")
+        .then(response => response.json())   //converir la informacion a formato JSON
+        .then(response => {
+          let output = '';
+          response.results.map((pokemon,index)=>{
+            output += `<li>${pokemon.name}</li>`;
+          });
+          document.body.innerHTML = output;
+        }) //muestra todo el objeto ya en JSON para manipularlo
+        .catch(error => console.log("No se pudo obtener la innformacion"))
+  </script> 
+
+  <!-- VERSION USANDO ASYNC AWAIT -->
+ <script>
+    async function fetchPokemon(){
+      const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+      const data = await response.json();
+      let output = '';
+      data.results.name.map((pokemon,index)=>{
+        output += `<li>${pokemon.name}</li>`;
+      });
+      document.body.innerHTML = output;
+    }
+
+    fetchPokemon();
+  </script>
+
+
+
+
+</body>
+</html>

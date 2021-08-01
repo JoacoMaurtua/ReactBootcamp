@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+
 
 const PersonCard =(props)=> {
  
@@ -12,7 +13,7 @@ const PersonCard =(props)=> {
   return(
     <div className="container">
       <h2>
-        {lastName},{firstName}
+        {props.lastName},{firstName}
       </h2>
       <p>Age:{state}</p>
       <p>Hair Color:{hairColor}</p>
@@ -23,3 +24,4 @@ const PersonCard =(props)=> {
 }
 
 export default PersonCard;
+

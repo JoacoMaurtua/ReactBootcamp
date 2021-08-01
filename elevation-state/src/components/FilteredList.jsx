@@ -20,3 +20,5 @@ export default function FilteredList(props) {
   );
 }
 
+//Aqui se utilizara indexOf y slice para extraer la posicion de las palabras y caracteres
+

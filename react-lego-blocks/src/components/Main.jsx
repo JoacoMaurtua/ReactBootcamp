@@ -11,6 +11,10 @@ const StyleMain = styled.div`
   box-sizing: border-box;
   border: 2px solid black;
   padding: 0.938rem 0 0 1.05rem;
+
+  @media(max-width:480px){
+    width: 21.2rem;
+  }
  
  
 `

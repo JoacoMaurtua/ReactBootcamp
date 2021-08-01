@@ -1,0 +1,33 @@
+
+
+.App {
+  text-align: center;
+}
+
+.alerta{
+  color: rgb(211, 2, 2);
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.inputContainer{
+  background-color: rgb(206, 206, 206);
+  margin: 0 auto;
+  width: 380px;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+input:not(.button){
+  background-color: rgb(247, 247, 247);
+  border-style: none;
+  border-radius: 10px;
+}
+
+.button{
+  padding: 8px;
+  background-color: rgb(88, 207, 41);
+  color: white;
+  border-radius: 10px;
+}

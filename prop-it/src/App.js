@@ -12,6 +12,7 @@ const dataBase = [
 
 const App= () => { 
   const db = dataBase.map((items,index) => {
+    console.log(index);
     const {firstName,lastName,age,hairColor} = items; //extraigo las propiedades de cada posicion que recorre items
     return(
       <PersonCard 
@@ -22,11 +23,12 @@ const App= () => {
         key = {index}
       />
     );
-  });
+  }); 
 
   return (
     <div className="App">
       {db}
+      {/* {dataBase.map((p,index)=>(<PersonCard {...p} key = {index}/>))}  FORMA ALTERNATIVA  */} 
       {/* <PersonCard firstName = {"Jane"} lastName = {"Doe"} age = {45} hairColor = {"Black"}/>
       <PersonCard firstName = {"John"} lastName = {"Smith"} age = {88} hairColor = {"Brown"}/>
       <PersonCard firstName = {"Millard"} lastName = {"Fillmore"} age = {50} hairColor = {"Brown"}/>
@@ -36,3 +38,5 @@ const App= () => {
 };
 
 export default App;
+
+

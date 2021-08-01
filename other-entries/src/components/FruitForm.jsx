@@ -32,12 +32,14 @@ export default function FruitForm() {
       </select>
         
       <label htmlFor="check" >Is it tasty? </label>
+      
       <input type="checkbox" id="check" checked={tasty} onChange={event => setTasty(event.target.checked)}/>
-     
+      
       <button>Take a bite</button>
 
     </form>
   )
 }
+
 
 

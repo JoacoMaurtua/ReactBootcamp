@@ -41,7 +41,6 @@ export default function PokemonList() {
         .catch(error=> console.error(error))   
   }
 
-
   return (
     <div>
       <button onClick={pokeClick3}>Pokemon fetch</button>

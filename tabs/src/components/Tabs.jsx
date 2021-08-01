@@ -52,7 +52,7 @@ export default function Tabs(props) {
         </div>
 
         <DivStyle>
-          <h3 onClick={e => onAlert()}>This is the tab {initialTab}</h3>
+          <h3 onClick={e => onAlert(e,initialTab)}>This is the tab {initialTab}</h3>
         </DivStyle>
     </div>
   )

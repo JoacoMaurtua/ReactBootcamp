@@ -2,17 +2,33 @@
   text-align: center;
 }
 
+form{
+  background-color: rgb(161, 161, 161);
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding:30px 0;
+}
+
 .group{
   background-color: rgb(207, 207, 207);
   padding: 20px;
   width: 350px;
   margin: 0 auto;
   margin-bottom: 15px;
+  border-radius: 8px;
 }
 
 label{
+  float: right;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
   margin-right: 145px;
+  
 }
+
+
 
 p{
   color: rgb(180, 8, 8);
@@ -20,12 +36,15 @@ p{
   font-weight: bold;
 }
 
-input:focus{
+input:not(.boton){
   border-style: none;
+  padding: 6px;
+  border-radius: 5px;
+  width: 300px;
 }
 
 .boton{
-  padding: 7px;
+  padding: 10px;
   color: white;
   background-color: rgb(47, 175, 47);
   border-radius: 10px;

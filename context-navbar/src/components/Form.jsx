@@ -23,8 +23,6 @@ const StyleForm = styled.form`
 
 `
 
-
-
 export default function Form() {
 
   const {state,setState} = useContext(MasterChief);

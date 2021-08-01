@@ -14,3 +14,10 @@ export default function Wrapper(props) {
   )
 }
 
+/* La funcion del metodo indexOf es devolver una lista con los string que tenga coincidencias
+   con el valor(state) ingresado por el usuario */
+
+
+
+
+

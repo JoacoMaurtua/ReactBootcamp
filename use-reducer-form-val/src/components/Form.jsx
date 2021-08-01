@@ -8,7 +8,7 @@ const initialState = {
 };
 
 
-const reducer = (state,action) =>{ //obtengo un nuevi estado
+const reducer = (state,action) =>{ //obtengo un nuevo estado
   return{
     ...state,
     [action.typeName]:action.typeValue
@@ -74,7 +74,7 @@ export default function Form() {
       </div>
 
       <div className="group">
-        <label htmlFor="email">Email </label>
+        <label className="email" htmlFor="email">Your Email </label>
         <input type="text" name="email" value={state.email} onChange={onChange}/>
         {
           (state.error.email !== null)?<p>{state.error.email}</p>:""
