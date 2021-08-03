@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 
-
+//LLEVANDO ALGO DEL RENDER AL EXTERIOR
 
 export default function ExampleTwo() {
 

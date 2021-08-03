@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
+//LLEVANDO ALGO DEL EXTERIOR(EN ESTE CASO LOS DATOS DE UNA API) AL RENDER
+
 export default function List() {
 
   //Nota: useEfect evita la carga de la transferencia de datos hacia la API
