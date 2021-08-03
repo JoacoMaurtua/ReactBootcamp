@@ -33,6 +33,13 @@ function MouseColor(){
 
     //SIN UN SEGUNDO PARAMETRO [], SE ACTIVARA EL USEEFFECT CON NACA RENDER LO QUE CREARA UN EVENT LISTENNER UNA Y OTRA VEZ OCUPANDO MUCHA MEMORIA EN EL DOM
 
+    //Para limpiar la memoria cuando se desmonte el componente:
+
+    return () => {
+      console.log('Limpiado');
+      window.removeEventListener("mousemove",onMouseMove);
+    }
+
   },[]); //useEffect solo se ejecuta una vez
 
   console.log('Ocurrio el render');
