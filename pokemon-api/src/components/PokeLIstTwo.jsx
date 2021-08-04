@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import axios from 'axios';
 
 //UTILIZANDO useEffect()
 
@@ -20,12 +21,11 @@ function PokeRender(){
   const [lista,setLista] = useState([]);
 
   useEffect(()=>{
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=1118")
-    .then(pokeData => pokeData.json())
-    .then(pokeData => setLista(pokeData.results))
+    axios.get("https://pokeapi.co/api/v2/pokemon/?limit=1118")
+    .then(pokeData => setLista(pokeData.data.results)) //palabra reservada data
     .catch(pokeError => alert(pokeError))
 
-
+    //Desmontado
     return()=>{
       console.log('Limpiado');
       setLista([]);

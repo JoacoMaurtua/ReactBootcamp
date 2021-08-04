@@ -9,19 +9,17 @@ export default function PokemonList() {
   /*****FETCH METHOD*****/
 
   
-    console.log('ftech veces')
+   /*  console.log('ftech veces')
     const pokeClick = () =>{
       fetch("https://pokeapi.co/api/v2/pokemon/?limit=1118")
         .then(pokeData => pokeData.json())
         .then(pokeData => setList(pokeData.results))
         .catch(pokeError => alert(pokeError))
-    }  
-
-
+    }   */
 
 
   /*****TRY CATCH METHOD*****/
-    const pokeClick2 = async() =>{ 
+   /* const pokeClick2 = async() =>{ 
     await pokeFetch().then(res => setList(res.results))
   }
 
@@ -33,21 +31,21 @@ export default function PokemonList() {
       }catch(err){
         console.error(err);
       }
-  } 
+  }   */
 
 
   /*****AXIOS METHOD*****/
-  const pokeClick3 = () =>{
+   const pokeClick3 = () =>{
     axios.get("https://pokeapi.co/api/v2/pokemon/?limit=1118")
 
         .then(response=> setList(response.data.results))
          
         .catch(error=> console.error(error))   
-  }
+  } 
 
   return (
     <div>
-      <button onClick={pokeClick2}>Pokemon fetch</button>
+      <button onClick={pokeClick3}>Pokemon fetch</button>
       <ul>
         {list ? list.map((pokemon,index)=>{
           return(<li key={index}>{pokemon.name}</li>)})
