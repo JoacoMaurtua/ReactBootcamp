@@ -9,7 +9,7 @@
 <body>
 
   <!-- VERSION USANDO PROMESAS SIMPLES -->
-  <script>
+  <!-- <script>
     fetch("https://pokeapi.co/api/v2/pokemon")
         .then(response => response.json())   //converir la informacion a formato JSON
         .then(response => {
@@ -19,23 +19,38 @@
           });
           document.body.innerHTML = output;
         }) //muestra todo el objeto ya en JSON para manipularlo
-        .catch(error => console.log("No se pudo obtener la innformacion"))
-  </script> 
+        .catch(error => console.log("No se pudo obtener la informacion"))
+  </script> -->
 
   <!-- VERSION USANDO ASYNC AWAIT -->
  <script>
     async function fetchPokemon(){
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon')
-      const data = await response.json();
-      let output = '';
-      data.results.name.map((pokemon,index)=>{
-        output += `<li>${pokemon.name}</li>`;
-      });
-      document.body.innerHTML = output;
+      try{
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+        const data = await response.json();
+        console.log(data);
+      }catch(err){
+        console.log(err);
+      }
+     
     }
 
-    fetchPokemon();
-  </script>
+    const renderPokemon = async()=>{
+      await fetchPokemon()
+      let output = ''
+      .then(data =>  data.results.name.map((pokemon,index)=>{ //error
+          output += `<li>${pokemon.name}</li>`;
+        }))
+      document.body.innerHTML = output;
+    }   
+
+    renderPokemon();
+  </script> 
+
+
+  
+
+
 
 
 
