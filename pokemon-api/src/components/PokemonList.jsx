@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 
 export default function PokemonList() {
@@ -8,12 +8,16 @@ export default function PokemonList() {
 
   /*****FETCH METHOD*****/
 
-   const pokeClick = () =>{
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=1118")
-      .then(pokeData => pokeData.json())
-      .then(pokeData => setList(pokeData.results))
-      .catch(pokeError => alert(pokeError))
-  }  
+  
+    console.log('ftech veces')
+    const pokeClick = () =>{
+      fetch("https://pokeapi.co/api/v2/pokemon/?limit=1118")
+        .then(pokeData => pokeData.json())
+        .then(pokeData => setList(pokeData.results))
+        .catch(pokeError => alert(pokeError))
+    }  
+
+
 
 
   /*****TRY CATCH METHOD*****/
@@ -43,7 +47,7 @@ export default function PokemonList() {
 
   return (
     <div>
-      <button onClick={pokeClick3}>Pokemon fetch</button>
+      <button onClick={pokeClick2}>Pokemon fetch</button>
       <ul>
         {list ? list.map((pokemon,index)=>{
           return(<li key={index}>{pokemon.name}</li>)})
