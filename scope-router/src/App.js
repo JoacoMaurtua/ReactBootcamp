@@ -4,11 +4,11 @@ import{
   BrowserRouter as Router, //Componente global que hace posible la definicion de rutas a cualquier campo dentro del dominio
   Switch,  //Muestra el primer hijo, engloba las rutas
   Route, //Es un componente donde se definen las rutas, que URLs tendran las paginas
-  Link //ancla
+  //Link -> ancla
 } from 'react-router-dom';
-import Contacto from './components/Contacto';
-import Nosotros from './components/Nosotros';
-import Inicio from './components/Inicio';
+import Contacto from './views/Contacto';
+import Nosotros from './views/Nosotros';
+import Inicio from './views/Inicio';
 
 
 function App() {

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 export default function NavBar() {
   return (
     <div>
-      <div classNme = 'btn-group' style={{background:"#343a40", paddingBottom:"20px"}}>
+      <div className = 'btn-group' style={{background:"#343a40", paddingBottom:"20px", width:"100%"}}>
           <Link to="/" className = "btn btn-dark" style={{marginTop:"20px"}}>
               Inicio
           </Link>
