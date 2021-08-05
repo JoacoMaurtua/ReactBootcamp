@@ -9,6 +9,7 @@ import{
 import Contacto from './views/Contacto';
 import Nosotros from './views/Nosotros';
 import Inicio from './views/Inicio';
+import Item from './views/Item';
 
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
     <Router>
       <div className="App">
         <Switch> {/* SE DEBE DECLARAR DE LO MAS ESPECIFICO A LO MAS GENERAL */}
+          <Route path="/contacto/:id">
+            <Item/>
+          </Route>
           <Route path="/contacto">
             <Contacto/>
           </Route>
