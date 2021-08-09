@@ -16,10 +16,6 @@ export default function Form(props) {
 
   const [options,setOptions] = useState([]); //AQUI DEBO EXTARER LA LISTA DE DATOS
 
-  /* const [option,setOption] = useState(options[0]); 
-
-  const [item,setItem] = useState('');  */
-
   const [datos,setDatos] = useState({
     option:options[0],
     item:''
@@ -30,9 +26,32 @@ export default function Form(props) {
       ...datos,
       [e.target.name]:e.target.value
     })
-      
-    
+    return datos.option+datos.item
   }
+
+ const handleOnSubmit = async(e) =>{
+    e.preventDefault();
+    try{
+      const url = handleOnChange(e);
+      console.log(url);
+      const getInfo = url =>{
+        axios.get(url)
+        .then(res=>{
+          const entries = Object.entries(res.data);
+          return entries.slice(0,6)
+        })
+        .catch(err=>console.log(err))
+      }
+      const array = getInfo(url);
+      console.log(array);
+
+
+    }catch{
+      console.log('Objeto no encontrado');
+    }
+  }
+
+
 
   /* const {category} = useParams();  */
 
@@ -47,10 +66,10 @@ export default function Form(props) {
   console.log(options)
 
   return (
-   <form onSubmit = {e => e.preventDefault()}>
+   <form onSubmit = {handleOnSubmit}>
      <label htmlFor="menu">Search for: </label>
      <select 
-        name="menu" 
+        name="option" 
         id="menu" 
         value = {datos.option}
         onChange = {handleOnChange} //cada seleccion deberia mandarme a una diferente categoria
@@ -68,11 +87,11 @@ export default function Form(props) {
      <input 
         type="number" 
         id="id"
-        name = "id"
+        name = "item"
         value = {datos.item}
     
         onChange = {handleOnChange} />
-     <button>Search</button>
+     <button type="submit">Search</button>
 
 
    </form>
