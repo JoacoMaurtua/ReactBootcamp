@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
+/* import { useParams,Link } from 'react-router-dom'; */
 
 /* const categorys = [
   'people',
@@ -16,15 +16,29 @@ export default function Form(props) {
 
   const [options,setOptions] = useState([]); //AQUI DEBO EXTARER LA LISTA DE DATOS
 
-  const [option,setOption] = useState(options[0]); 
+  /* const [option,setOption] = useState(options[0]); 
 
-  const [item,setItem] = useState(''); 
+  const [item,setItem] = useState('');  */
+
+  const [datos,setDatos] = useState({
+    option:options[0],
+    item:''
+  });
+
+  const handleOnChange = e =>{
+    setDatos({
+      ...datos,
+      [e.target.name]:e.target.value
+    })
+      
+    
+  }
 
   /* const {category} = useParams();  */
 
   useEffect(()=>{
     axios.get(`https://swapi.dev/api/`) //aqui debo poner un iterador 
-    .then(response => setOptions(Object.entries(response.data)))
+    .then(response => setOptions(Object.entries(response.data))) //convertir objeto en arreglo
     .catch(console.log('Ups, algo salio mal'))
 
   },[])
@@ -38,20 +52,26 @@ export default function Form(props) {
      <select 
         name="menu" 
         id="menu" 
-        value = {option}
-        onChange = {e => setOption(e.target.value)} //cada seleccion deberia mandarme a una diferente categoria
+        value = {datos.option}
+        onChange = {handleOnChange} //cada seleccion deberia mandarme a una diferente categoria
       >
       {
           options?options.map(([key,value],index)=>
-          (<option key = {index} value = {value}>{key}</option>)):null
+          (<option key = {index} value = {value}>
+              {key}
+          </option>)):null
       }
      </select>
+
+
      <label htmlFor="id">id: </label>
      <input 
-        type="text" 
+        type="number" 
         id="id"
+        name = "id"
+        value = {datos.item}
     
-        onChange = {e => setItem(e.target.value)} />
+        onChange = {handleOnChange} />
      <button>Search</button>
 
 

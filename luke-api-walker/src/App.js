@@ -14,7 +14,7 @@ function App() {
     <Router>
        <div className="App">
          <Switch>
-            <Route path = {"/item/:id"}> 
+            <Route path = {"/item:id"}> 
                 <Item/>
             </Route>
             <Route path={"/"}>
