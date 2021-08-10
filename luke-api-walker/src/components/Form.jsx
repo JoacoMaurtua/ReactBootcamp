@@ -1,16 +1,5 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
-/* import { useParams,Link } from 'react-router-dom'; */
-
-/* const categorys = [
-  'people',
-  'planets',
-  'spaceships',
-  'vehicles',
-  'films',
-  'species'
-] */
-
 
 export default function Form(props) {
 
@@ -20,6 +9,13 @@ export default function Form(props) {
     option:options[0],
     item:''
   });
+
+  const [results,setResults] = useState({
+    title:'',
+    properties:[]
+  })
+
+  const [found,setFound] = useState(true);
 
   const handleOnChange = e =>{
     setDatos({
@@ -35,9 +31,14 @@ export default function Form(props) {
       const url = handleOnChange(e);
       console.log(url);
       const getInfo = async(url) =>{
-        
+
         try{
           const response = await fetch(url);
+          if(response.ok){
+            console.log('TODO BIEN')
+          }else{
+            throw new Error('NO ENCONTRADO')
+          }
           const json = await response.json();
           const propiedadesUtiles = Object.entries(json);
           return propiedadesUtiles.slice(0,6) //res.data = [  [key_1, value1], [key_2, value2], [key_3, value3]  ]
@@ -49,9 +50,17 @@ export default function Form(props) {
       }
       const array = await getInfo(url);
       console.log('array: ',array);
+      const [[,title]] = array; //primer valor para el titulo
+
+      setResults({
+          title,
+          properties: array.slice(1) 
+      });
 
     }catch{
       console.log('Objeto no encontrado');
+      setFound(false);
+
     }
   }
 
@@ -67,35 +76,60 @@ export default function Form(props) {
   
   console.log(options)
 
+  const {title,properties} = results;
+
   return (
-   <form onSubmit = {handleOnSubmit}>
-     <label htmlFor="menu">Search for: </label>
-     <select 
-        name="option" 
-        id="menu" 
-        value = {datos.option}
-        onChange = {handleOnChange} //cada seleccion deberia mandarme a una diferente categoria
-      >
+    <div>
+        <form onSubmit = {handleOnSubmit}>
+            <label htmlFor="menu">Search for: </label>
+            <select 
+                name="option" 
+                id="menu" 
+                value = {datos.option}
+                onChange = {handleOnChange} //cada seleccion deberia mandarme a una diferente categoria
+              >
+              {
+                  options?options.map(([key,value],index)=>
+                  (<option key = {index} value = {value}>
+                      {key}
+                  </option>)):null
+              }
+            </select>
+
+
+            <label htmlFor="id">id: </label>
+            <input 
+                type="number" 
+                id="id"
+                name = "item"
+                value = {datos.item}
+            
+                onChange = {handleOnChange} />
+            <button type="submit">Search</button>
+
+        </form>
+
       {
-          options?options.map(([key,value],index)=>
-          (<option key = {index} value = {value}>
-              {key}
-          </option>)):null
+        found?
+        <div className="resultados">
+        <h1>{title}</h1>
+          {
+            properties? properties.map(([key,value],index) => (
+              <p key={index}>
+                  <strong>{key.replace(/\b\w/g, c=> c.toUpperCase())} : </strong>{value}
+              </p>
+            )) :null
+          }
+        </div>
+        :
+        <div className = 'error'>
+          <p>Estos no son los droides que esta buscandos</p>
+          <img src="https://media.giphy.com/media/l2JJKs3I69qfaQleE/giphy.gif" alt="Obi-wan-kenobi" />
+        </div>
+
       }
-     </select>
-
-
-     <label htmlFor="id">id: </label>
-     <input 
-        type="number" 
-        id="id"
-        name = "item"
-        value = {datos.item}
     
-        onChange = {handleOnChange} />
-     <button type="submit">Search</button>
-
-
-   </form>
+    </div>
+   
   )
 }
