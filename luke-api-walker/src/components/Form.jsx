@@ -26,7 +26,7 @@ export default function Form(props) {
       ...datos,
       [e.target.name]:e.target.value
     })
-    return datos.option+datos.item
+    return datos.option+datos.item //creo sinteticamente una URL
   }
 
  const handleOnSubmit = async(e) =>{
@@ -34,24 +34,26 @@ export default function Form(props) {
     try{
       const url = handleOnChange(e);
       console.log(url);
-      const getInfo = url =>{
-        axios.get(url)
-        .then(res=>{
-          const entries = Object.entries(res.data);
-          return entries.slice(0,6)
-        })
-        .catch(err=>console.log(err))
+      const getInfo = async(url) =>{
+        
+        try{
+          const response = await fetch(url);
+          const json = await response.json();
+          const propiedadesUtiles = Object.entries(json);
+          return propiedadesUtiles.slice(0,6) //res.data = [  [key_1, value1], [key_2, value2], [key_3, value3]  ]
+ 
+        }catch(error){
+            console.log(error)
+        }
+       
       }
-      const array = getInfo(url);
-      console.log(array);
-
+      const array = await getInfo(url);
+      console.log('array: ',array);
 
     }catch{
       console.log('Objeto no encontrado');
     }
   }
-
-
 
   /* const {category} = useParams();  */
 
