@@ -14,10 +14,10 @@ function App() {
     <Router>
        <div className="App">
          <Switch>
-            <Route path = {"/item:id"}> 
+            <Route path ="/:id"> 
                 <Item/>
             </Route>
-            <Route path={"/"}>
+            <Route path="/">
                 <Main/>  
             </Route>
          </Switch>

@@ -79,10 +79,10 @@ export default function Form(props) {
   const {title,properties} = results;
 
   return (
-    <div>
+    <div className = 'container'>
         <form onSubmit = {handleOnSubmit}>
-            <label htmlFor="menu">Search for: </label>
-            <select 
+            <label htmlFor="menu" className="searchFor">Search for: </label>
+            <select className="opciones"
                 name="option" 
                 id="menu" 
                 value = {datos.option}
@@ -98,7 +98,7 @@ export default function Form(props) {
 
 
             <label htmlFor="id">id: </label>
-            <input 
+            <input className="idInput"
                 type="number" 
                 id="id"
                 name = "item"
